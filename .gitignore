@@ -1,4 +1,5 @@
 .vscode
+sjc_env
 *.pyc
 */migrations
 migrations/*
