@@ -86,7 +86,7 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'sjlegalcell',
+            'NAME': 'sjlegalcell_new',
             'USER': 'sjlegalcell_admin',
             'PASSWORD': 'sjlegalcell_passw0rd',
             'HOST': 'localhost',
