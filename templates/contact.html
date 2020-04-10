@@ -1,0 +1,61 @@
+{% extends "base.html" %} {% load static %} {% block head %}
+<title>Social Justice Legal Cell | Contact</title>
+<link rel="stylesheet" href="{% static 'css/rest.css' %}"> {% endblock head %} {% block body %}
+<div class="contact-container">
+    <div data-aos='zoom-out' id="contact-heading">
+        Founder(s)
+    </div>
+    <div data-aos-delay='300' id="contact">
+        {% for contact in fc %}
+        <div class="person founder" data-aos='zoom-in-down'>
+            <div class="img">
+                <img src="{{ contact.img.url }}" alt="">
+            </div>
+            <div class="detail">
+                <b>{{ contact.name }}</b>
+                <br> <br> {{ contact.mobile }}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div data-aos='zoom-out' id="contact-heading">
+        Legal Panel/Advisor(s)
+    </div>
+    <div data-aos-delay='300' id="contact">
+        {% for contact in lp %}
+        <div class="person" data-aos='zoom-in-down'>
+            <div class="detail">
+                <b>{{ contact.name}}</b> <br> {{contact.mobile}}<br>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div data-aos='zoom-out' id="contact-heading">
+        Advocate(s)
+    </div>
+    <div data-aos-delay='300' id="contact">
+        {% for contact in a %}
+        <div class="person" data-aos='zoom-in-down'>
+            <div class="detail">
+                <b>{{ contact.name}}</b> <br> {{contact.mobile}}<br>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div data-aos='zoom-out' id="contact-heading">
+        Patron(s)
+    </div>
+    <div data-aos-delay='300' id="contact">
+        {% for contact in p %}
+        <div class="person" data-aos='zoom-in-down'>
+            <div class="detail">
+                <b>{{ contact.name}}</b> <br> {{contact.mobile}}<br>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock body %}

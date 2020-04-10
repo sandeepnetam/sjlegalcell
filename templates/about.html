@@ -1,0 +1,36 @@
+{% extends "base.html" %} {% load static %} {% block body %} {% for a in about %}
+<section data-aos="zoom-in" class="body-section" id='rules-section'>
+    <h1 class='heading'>{{ a.heading }}</h1>
+    <div data-aos="fade-in" id="rules">
+        <p data-aos="fade-in">
+            <p>
+                <span>                    
+                    {{ a.detail }}
+                </span>
+            </p>
+            <p>
+                <span>
+                    {{ a.detail_en }}
+                </span>
+            </p>
+        </p>
+    </div>
+</section>
+
+{% endfor %}
+
+<section data-aos="zoom-in" class="body-section" id='rules-section'>
+    <h1 class='heading'>Objective</h1>
+    <div data-aos="fade-in" id="rules">
+        {% for rule in rules %}
+        <p data-aos="fade-in">
+            <span>{{ rule.rule_no }}.</span>
+            <span>
+                {{ rule.rule }}<br>
+                {{ rule.rule_en }}
+             </span>
+        </p>
+        {% endfor %}
+    </div>
+</section>
+{% endblock body %}

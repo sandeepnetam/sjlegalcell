@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://kit.fontawesome.com/278f9857d7.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Bitter&display=swap" rel="stylesheet">
+    <link href="{% static 'css/aos.css' %}" rel="stylesheet">
+    <link href="{% static 'css/main.css' %}" rel="stylesheet"> {% block head %}
+    <title>Social Justice Legal Cell | Home</title>
+    {% endblock head %}
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h3 id='logo'><a href="{% url 'home' %}">Social Justice Legal Cell</a></h3>
+            <div class='ham' id='ham'>
+                <hr>
+                <hr>
+                <hr>
+            </div>
+            <div class="hamMenu">
+                <span class="closeBtn"> <i class="fas fa-times-circle"></i> </span>
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'activity' %}">Activities</a></li>
+                    <li><a href="{% url 'gallery' %}">Gallery</a></li>
+                    <li><a href="{% url 'downloads' %}">Downloads</a></li>
+                    <li><a href="{% url 'about' %}">About Us</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+        {% block header_section %} {% endblock header_section %}
+    </header>
+    <button onclick="bottom2top()" id="b2t" title="Go to top"> <i class="fas fa-arrow-up"></i> </button> {% block body %} {% endblock body %}
+
+    <footer>
+        <div>
+            <span><a href="{% url 'dev' %}">Copyrights Reserverd &copy; 2020</a></span>
+        </div>
+    </footer>
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/TweenMax.min.js' %}"></script>
+    <script src="{% static 'js/TimelineMax.min.js' %}"></script>
+    <script src="{% static 'js/aos.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>

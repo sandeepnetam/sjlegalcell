@@ -1,0 +1,29 @@
+{% extends "base.html" %} {% load static %} {% block body %}
+
+<section class="body-section" id="facts_container">
+    <div class="facts">
+        <h1>facts</h1>
+        <div class='fact_cont'>
+            {% for fact in facts %}
+            <div class="fact">
+                <div class="fact_no">
+                    {{ fact.fact_no }}
+                </div>
+                <div class="fact_detail">
+                    <p>
+                        <b></b>
+                    </p>
+                    <p class="">
+                        {{ fact.fact }}
+                    </p>
+                </div>
+            </div>
+            {% empty %}
+            <span id="no_fact">
+                No Facts
+            </span> {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock body %}

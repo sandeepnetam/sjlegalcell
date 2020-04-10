@@ -1,0 +1,19 @@
+{% extends "base.html" %} {% load static %} {% block head %}
+<title>Social Justice Legal Cell | Gallery</title>
+<link rel="stylesheet" href="{% static 'css/rest.css' %}"> {% endblock head %} {% block body %}
+
+<div class="gallery-container">
+    <div id="gallery-heading">
+        Gallery
+    </div>
+    <div id="gallery">
+        {% for event in e %}
+        <h1>date: {{ event }}</h1>
+        <div class="gallery-images">
+            {% for img in g %} {% ifequal img.event_date event %}
+            <img src="{{ img.img.url }}" alt=""> {% endifequal %} {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{{t}} {% endblock body %}

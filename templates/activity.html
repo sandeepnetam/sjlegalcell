@@ -1,0 +1,23 @@
+{% extends "base.html" %} {% load static %} {% block head %}
+<title>Social Justice Legal Cell | Activity</title>
+<link rel="stylesheet" href="{% static 'css/rest.css' %}"> {% endblock head %}{% block body %}
+<div class="activity-container">
+    <div id="activity-heading">
+        Activities
+    </div>
+    <div id="activity">
+        {% for event in e %}
+        <h1>
+            date: {{ event }}
+        </h1>
+        <div class="activity-gallery">
+            {% for img in i %}{% ifequal img.event_date event %}
+            <img src="{{ img.image.url }}" alt=""> {% endifequal %} {% endfor %}
+        </div>
+        <div class="descr more">
+            {{ event.descr }}
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock body %}

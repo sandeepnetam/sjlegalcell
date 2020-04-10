@@ -1,0 +1,120 @@
+{% extends "base.html" %} {% load static %} {% block body %}
+<section data-aos="zoom-in" class="body-section" id='rules-section'>
+    <h1 class='heading'>Our Vission</h1>
+    <div data-aos="fade-in" id="rules">
+        <p data-aos="fade-in">
+            <p>
+                <span>                    
+                    मानवतावाद को प्राप्त करने और भेदभाव को मिटाने के लिए भारत के संविधान का एक आदर्श कार्यान्वयन।
+                </span>
+            </p>
+            <p>
+                <span>
+                    An Ideal implementation of Constitution of India to achieve humanitarianism and to eradicate discrimination .
+                 </span>
+            </p>
+        </p>
+    </div>
+</section>
+<section data-aos="zoom-in" class="body-section" id='rules-section'>
+    <h1 class='heading'>Our Mission</h1>
+    <div data-aos="fade-in" id="rules">
+        <p data-aos="fade-in">
+            <p>
+                <span>
+                    समाज में कुल समानता स्थापित करने के उद्देश्य से अनुसूचित जातियों, अनुसूचित जनजातियों, अन्य पिछड़े वर्गों और धार्मिक अल्पसंख्यकों के संवैधानिक और मानवाधिकारों की सुरक्षा के लिए मानव संशोधन तैयार करना।
+                 </span>
+            </p>
+            <p>
+                <span>
+                    To prepare human amendments for the protection of the constitutional and human rights of Scheduled Castes, Scheduled Tribes, Other Backward Classes and Religious Minorities for the purpose of establishing total equality in the society.
+                 </span>
+            </p>
+        </p>
+    </div>
+</section>
+<section data-aos="zoom-in" class="body-section" id='rules-section'>
+    <h1 class='heading'>Background of the Organization</h1>
+    <div data-aos="fade-in" id="rules">
+        <p data-aos="fade-in">
+            <p>
+                <span>                   
+                    सामाजिक न्याय कानूनी सेल सामाजिक रूप से दबे हुए वर्ग और अल्पसंख्यकों के कर्मचारियों का एक स्व-प्रेरित समूह है, जो उनके खिलाफ अन्याय से लड़ने के लिए जागते हैं। यह समूह एक स्व-जुटा हुआ समूह है, जिसे एक घटना के आधार पर दिसंबर के महीने में शुरू किया जाता है, जब पदोन्नति में आरक्षण के बारे में मामला, विशेष रूप से छत्तीसगढ़ लोक सेवा (पदोन्नति) नियम 2003, को बिलासपुर में सीजी के उच्च न्यायालय के सामने चुनौती दी गई थी और माननीय न्यायालय ने नियम 5 के प्रावधानों, अनुसूचित जाति और अनुसूचित जनजाति के लिए पदोन्नति में आरक्षण से संबंधित एक आदेश पारित किया। पहली बात यह होने के बाद कि बड़ी संख्या में अधिकारी, कर्मचारी, विचारक, वकील, डॉक्टर, इंजीनियर, प्रोफेसर और अन्य पेशेवर इस आंदोलन से जुड़े हुए हैं और वे सभी अनुसूचित जाति और अनुसूचित जनजाति के लोगों के बीच संविधान के ज्ञान की कमी का एहसास करते हैं; और दूसरी बात यह कि उन सभी ने आंदोलन को मजबूत करने के लिए अपना वित्तीय योगदान दिया, जिसके कारण समूह को संस्था के रूप में <b>SOCIAL JUSTICE LEGAL CELL</b> नाम से पंजीकृत होना पड़ा।            
+                 </span>
+            </p>
+            <p>
+                <span>
+                    The Social Justice Legal Cell is a self
+                    motivated group of employees of socially depressed class and minorities, who wake up to
+                    fight the injustice against them. This group is a self mobilized group, heated by an event
+                    i.e early in the month of December when a matter about reservation in promotion,
+                    specifically the Chhattisgarh Public Service (Promotion) Rules 2003, was challenged before
+                    the High Court of C.G at Bilaspur and the Hon’ble court passed an order of Stay the
+                    provisions of rule 5, deals with reservation in promotion to the Schedule Caste and
+                    Schedule Tribe.
+                    After first thing happened is that a large number of officers, employees, thinkers, lawyers,
+                    doctors, engineers, professors and other professional get indulged with this movement and
+                    they all realized lack of knowledge of constitution amongst the people of schedule caste
+                    and schedule tribe; and secondly they all gave their financial contribution to strengthen
+                    the movement, which led to the group to get registered as an institution by the name
+                    <b>SOCIAL JUSTICE LEGAL CELL</b>
+                 </span>
+            </p>
+        </p>
+    </div>
+</section>
+
+<section data-aos="zoom-in" class="body-section" id='rules-section'>
+    <h1 class='heading'>Objective</h1>
+    <div data-aos="fade-in" id="rules">
+        {% for rule in rules %}
+        <p data-aos="fade-in">
+            <span>{{ rule.rule_no }}.</span>
+            <span>
+                {{ rule.rule }}<br>
+                {{ rule.rule_en }}
+             </span>
+        </p>
+        {% endfor %}
+    </div>
+</section>
+
+<section data-aos="zoom-in" class="body-section" id='rules-section'>
+    <h1 class='heading'>why do we need this organization?</h1>
+    <div data-aos="fade-in" id="rules">
+        <p data-aos="fade-in">
+            <p>
+                <span>
+                    <b>Social Justice Legal Cell</b> is a self motivated group and is
+                    formed, realizing the need of a platform for fighting with the challenges arise
+                    in the legislative making and its implementation in the state, and also for 
+                    fighting in the courts of law for proper interpretation of laws (Not in the
+                    interest of welfare of Schedule caste, Schedule Tribe and OBC).
+                    Generally we see that we (The Schedule Caste and Schedule Tribe employees)
+                    do not take interest in collecting knowledge about our rights, rules, acts and
+                    constitution, and that is why we fail to understand the strategy of the so
+                    called advanced class, who injure the interest of Schedule caste, Schedule
+                    Tribe and OBC employees. The SJLC is committed to play the role of a
+                    guardian for protection of the rights provided in the constitution for the
+                    welfare of Schedule caste and Schedule Tribe, OBC and minorities.
+                 </span>
+            </p>
+            <p>
+                <span>
+                    <b>Social Justice Legal Cell</b> is a self motivated group and is
+                    formed, realizing the need of a platform for fighting with the challenges arise
+                    in the legislative making and its implementation in the state, and also for 
+                    fighting in the courts of law for proper interpretation of laws (Not in the
+                    interest of welfare of Schedule caste, Schedule Tribe and OBC).
+                    Generally we see that we (The Schedule Caste and Schedule Tribe employees)
+                    do not take interest in collecting knowledge about our rights, rules, acts and
+                    constitution, and that is why we fail to understand the strategy of the so
+                    called advanced class, who injure the interest of Schedule caste, Schedule
+                    Tribe and OBC employees. The SJLC is committed to play the role of a
+                    guardian for protection of the rights provided in the constitution for the
+                    welfare of Schedule caste and Schedule Tribe, OBC and minorities.
+            </p>
+        </p>
+    </div>
+</section>
+{% endblock body %}

@@ -1,0 +1,154 @@
+ {% extends "base.html" %} {% load static %} {% block header_section %}
+<div id="header-section">
+    <div class="hero">
+        <img src="{% static 'images/gavel-3575414_1920.jpg' %}" alt="">
+        <h1 class='headline'> Justice will be Uplheld </h1>
+    </div>
+</div>
+<div class="slider"></div>
+
+{% endblock header_section %} {% block body %}
+
+<section class="body-section" id="mission" style="margin-top: 10vh;">
+    <div id="mission-text">
+        <h1>Our Vision</h1>
+        <div>
+            <p>
+                "अजा, अजजा, अपिव एवं अल्पसंख्यक वर्ग के हितार्थ भारत के संविधान में वर्णित प्रावधानों के संरक्षण, संवर्धन एवं प्रभावी क्रियान्वयन ।"
+            </p>
+            <p>
+                In the Constitution of India for the benefit of SC, ST, OBC and Minority Protection, promotion and effective implementation of the provisions mentioned.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="body-section" id="mission">
+    <div id="mission-text">
+        <h1>Our Mission</h1>
+        <div>
+            <p>
+                समाज में समता, रवतंत्रता, न्याय और बंधूता स्थापित करने के उद्देश्य से अनुसूचित जाति, अनुसूचित जनजाति, अन्य पिछड़े वर्ग तथा अल्पसंख्यकों के संवैधानिक अधिकारों की रक्षा के लिये संधर्ष करने वाले मानव संसाधन तैयार करना ।
+
+            </p>
+            <p>
+                To prepare human amendments for the protection of the constitutional and human rights of Scheduled Castes, Scheduled Tribes, Other Backward Classes and Religious Minorities for the purpose of establishing total equality in the society.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="body-section" id="events_container">
+    <div class="events">
+        <h1>facts</h1>
+        <div class='event_cont'>
+            <marquee behavior="slide" direction="up" onmouseover="stop()" onmouseout="start()">
+                {% for fact in facts %}
+                <div class="event">
+                    <div class="event_date">
+                        {{ fact.fact_no }}
+                    </div>
+                    <div class="event_detail">
+                        <p>
+                            <b></b>
+                        </p>
+                        <p class="more">
+                            {{ fact.fact }}
+                        </p>
+                    </div>
+                </div>
+                {% empty %}
+                <span id="no_event">
+                No Facts
+            </span> {% endfor %}
+            </marquee>
+            {% if facts %}
+            <span id="fact_more">
+                <a href="{% url 'facts' %}">
+                    More Fact(s)
+                </a>
+            </span> {% endif %}
+        </div>
+    </div>
+    <div class="events">
+        <h1>Upcoming Events</h1>
+        <div class='event_cont'>
+            <marquee behavior="scroll" direction="up" onmouseover="stop()" onmouseout="start()">
+                {% for e in upcoming_events %}
+                <div class="event">
+                    <div class="event_date">
+                        {{ e.event_date }}
+                    </div>
+                    <div class="event_detail">
+                        <p>
+                            <b>{{ e.event_name }}</b>
+                        </p>
+                        <p class="more">
+                            {{ e.event_descr }}
+                        </p>
+                    </div>
+                </div>
+                {% empty %}
+                <span id="no_event">
+                No Events 
+            </span> {% endfor %}
+            </marquee>
+        </div>
+    </div>
+</section>
+
+<section class="body-section" id="activities">
+    <video autoplay loop>
+            <source src="{% static 'video/1.mp4' %}" type='video/mp4'>
+        </video>
+    <h1 data-aos="dade-down" class='heading'><a href="{% url 'activity' %}" alt='Click to go to activities page.'>Activities</a></h1>
+</section>
+
+<section id="contact-us">
+    <h1 class='heading'>Need help. contact us</h1>
+    <div id="contact-section">
+        <div id="contact-map">
+            <div class="mapouter">
+                <div class="gmap_canvas">
+                    <iframe width="100%" height="500px" id="gmap_canvas" src="https://maps.google.com/maps?q=Vivekanand%20nagar%20colony%20moka%20bilaspur&t=k&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                    <a href="https://www.bitgeeks.net"></a>
+                </div>
+                <style>
+                    .mapouter {
+                        position: relative;
+                        text-align: right;
+                        min-height: 500px;
+                        width: auto;
+                    }
+                    
+                    .gmap_canvas {
+                        overflow: hidden;
+                        background: none!important;
+                        min-height: 500px;
+                    }
+                </style>
+            </div>
+
+        </div>
+        <div id="contact-detail">
+            <p>
+                Social Justice Legal Cell
+            </p>
+            <p>
+                <b><span>Mobile : </span></b>
+                <span>9406298867</span>
+            </p>
+            <p>
+                <b><span>Email :  </span></b>
+                <span>sjlegalcell@gmail.com</span>
+            </p>
+            <p>
+                <b><span>Address : </span></b>
+                <span>
+                    Vivekanand Nagar Colony Mopka Bilaspur (C.G.) 495006
+                </span>
+            </p>
+        </div>
+    </div>
+</section>
+{% endblock body %}
