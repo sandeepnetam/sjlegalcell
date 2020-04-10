@@ -1,7 +1,7 @@
 from django.contrib import admin
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
-from .models import events, aboutUS, eventPhoto, Rules, Gallery, Contact, FounderContact, Designation, UpcomingEvent, Brochure, fact
+from .models import account_info, events, aboutUS, eventPhoto, Rules, Gallery, Contact, FounderContact, Designation, UpcomingEvent, Brochure, fact
 # Register your models here.
 class FactAdmin(admin.ModelAdmin):
     list_display = ('fact_no', 'fact')
@@ -68,6 +68,21 @@ class aboutUSAdmin(admin.ModelAdmin):
     list_display_links = ('heading',)
     list_editable = ('showing_order',)
     list_filter = ('showing_order',)
+
+
+class account_infoAdmin(admin.ModelAdmin):
+    list_display = ('id','acc_no', 'ifsc', 'bank_name')
+    list_display_links = ('id',)
+    list_editable = ('acc_no', 'ifsc', 'bank_name')
+
+class account_infoResources(resources.ModelResource):
+    class Meta:
+        model = account_info
+        fields = ('id', 'acc_no', 'ifsc', 'bank_name')
+        export_order = fields
+@admin.register(account_info)
+class account_infoAdmin(ImportExportModelAdmin, account_infoAdmin):
+    resource_class = account_infoResources
 
 admin.site.register(eventPhoto)
 admin.site.register(Gallery)

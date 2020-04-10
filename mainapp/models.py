@@ -109,3 +109,11 @@ class aboutUS(models.Model):
 
     def __str__(self):
         return f"{self.showing_order} : {self.heading} --> {self.detail}"
+
+class account_info(models.Model):
+    acc_no = models.CharField(max_length=100)
+    ifsc = models.CharField(max_length=100)
+    bank_name = models.CharField( max_length=100)
+
+    def __str__(self):
+        return self.acc_no

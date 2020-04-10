@@ -5,9 +5,11 @@ from .models import *
 def home(request):
     ue = UpcomingEvent.objects.order_by('event_date')
     f  = fact.objects.order_by('-fact_no')[:4]
+    a_info = account_info.objects.all()[0]
     context = {  
         'upcoming_events': ue,
-        'facts': f
+        'facts': f,
+        'a_info': a_info
       }
     return render(request, 'home.html', context)
 

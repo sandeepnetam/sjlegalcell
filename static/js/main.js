@@ -64,6 +64,13 @@ $(showMenu).on('click', function() {
 })
 
 
+$('#contribBtn').on('click', function() {
+    $('#contrib-detail').slideToggle(1000);
+
+    console.log($(this));
+});
+
+
 $(document).ready(function() {
     var showChar = 120;
     var ellipsestext = "...";

@@ -526,6 +526,14 @@ section {
     #rules {
         font-size: 20px;
     }
+    #contact-detail p {
+        font-size: 15px;
+        padding: 5px 5px;
+    }
+    #contact-detail p:nth-of-type(1) {
+        font-size: 15px;
+        padding: 5px 5px;
+    }
 }
 
 footer {
@@ -787,4 +795,81 @@ marquee {
     background: white;
     padding: 10px 20px;
     text-emphasis: justify;
+}
+
+#contrib-section {
+    padding: 20px;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#contrib {
+    width: fit-content;
+    min-width: 80%;
+}
+
+#contrib-text {
+    width: 100%;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    background: #232526;
+    /*fallbackforoldbrowsers*/
+    background: -webkit-linear-gradient(to right, #414345, #232526);
+    /*Chrome10-25,Safari5.1-6*/
+    background: linear-gradient(to right, #414345, #232526);
+    /*W3C,IE10+/Edge,Firefox16+,Chrome26+,Opera12+,Safari7+*/
+    box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.2), 0px 8px 8px 2px rgba(0, 0, 0, 0.2);
+    color: white;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+    text-transform: uppercase;
+}
+
+#contrib-text span {
+    margin-left: 15px;
+    float: right;
+    font-size: 20px;
+    transform: translateY(-5px);
+    -webkit-transform: translateY(-5px);
+    -moz-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    -o-transform: translateY(-5px);
+    cursor: pointer;
+}
+
+#contrib-detail {
+    display: none;
+}
+
+#contrib-detail p {
+    padding: 10px 20px;
+    background-color: white;
+    color: #232526;
+    margin-bottom: 10px;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+}
+
+#contrib-detail p:hover {
+    box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.2), 0px 8px 8px 2px rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (min-width: 425px) {
+    #contrib-text {
+        font-size: 20px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    #contrib {
+        min-width: 40%;
+    }
 }

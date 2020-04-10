@@ -103,7 +103,24 @@
         </video>
     <h1 data-aos="dade-down" class='heading'><a href="{% url 'activity' %}" alt='Click to go to activities page.'>Activities</a></h1>
 </section>
-
+<section id="contrib-section">
+    <div id="contrib">
+        <div id="contrib-text">
+            Contribute to us here <span id="contribBtn">&#8910;</span>
+        </div>
+        <div id="contrib-detail">
+            <p>
+                Account Number : {{ a_info.acc_no }}
+            </p>
+            <p>
+                IFSC : {{ a_info.ifsc }}
+            </p>
+            <p>
+                Bank Name : {{ a_info.bank_name }}
+            </p>
+        </div>
+    </div>
+</section>
 <section id="contact-us">
     <h1 class='heading'>Need help. contact us</h1>
     <div id="contact-section">
