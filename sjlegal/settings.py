@@ -28,8 +28,8 @@ if os.path.exists('.env'):
     ALLOWED_HOSTS = []
 else:
     DEBUG = False
-    ALLOWED_HOSTS = ['139.59.79.163']
-#'139.59.79.163'
+    ALLOWED_HOSTS = ['165.22.219.255']
+#'165.22.219.255'
 
 
 # Application definition
