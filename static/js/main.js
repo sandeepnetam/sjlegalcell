@@ -31,6 +31,7 @@ const headline = document.querySelector(".headline");
 const showMenu = document.querySelector(".ham");
 const hideMenu = document.querySelector('.closeBtn');
 var hamMenu = document.querySelector('.hamMenu');
+var menu_full = document.querySelector('.menu_full');
 
 const t1 = new TimelineMax();
 try {
@@ -39,6 +40,7 @@ try {
         .fromTo(slider, 1.2, { x: '-100%' }, { x: "0%", ease: Power2.easeInOut }, '-=1.2')
         .fromTo(logo, 0.5, { opacity: 0, x: 30 }, { opacity: 1, x: 0, ease: Power2.easeInOut }, '-=0.5')
         .fromTo(ham, 0.5, { opacity: 0, x: 30 }, { opacity: 1, x: 0, ease: Power2.easeInOut }, '-=0.8')
+        .fromTo(menu_full, 0.5, { opacity: 0, x: 30 }, { opacity: 1, x: 0, ease: Power2.easeInOut }, '-=0.8')
         .fromTo(headline, 1, { opacity: 0, x: 0, y: 0 }, { opacity: 1, x: 0, y: -100, ease: Power2.easeInOut }, '-=0.5');
 } catch (err) {
     console.log('header section is not here.Hence sppressing the error');
