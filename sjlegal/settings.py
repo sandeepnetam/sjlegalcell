@@ -28,7 +28,7 @@ if os.path.exists('.env'):
     ALLOWED_HOSTS = []
 else:
     DEBUG = False
-    ALLOWED_HOSTS = ['165.22.219.255']
+    ALLOWED_HOSTS = ['www.sjlegalcell.com', 'sjlegalcell.com']
 #'165.22.219.255'
 
 
