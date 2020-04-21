@@ -29,6 +29,9 @@ if os.path.exists('.env'):
 else:
     DEBUG = False
     ALLOWED_HOSTS = ['165.22.219.255']
+
+DEBUG = True
+ALLOWED_HOSTS = ['165.22.219.255']
 #'165.22.219.255'
 
 
