@@ -1,0 +1,14 @@
+{% extends "base.html" %} {% load static %} {% block head %}
+<link rel="stylesheet" href="{% static 'css/mis.css' %}">
+<title>Social Justice Legal Cell | MIS</title>
+{% endblock head %}{% block body %}
+<section class="mis_success">
+    <div id="success_div">
+        Form Successfully submitted
+    </div>
+    <div>
+        <a href="{% url 'home' %}">go to home</a>
+    </div>
+</section>
+
+{% endblock body %}

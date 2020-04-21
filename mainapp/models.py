@@ -117,3 +117,76 @@ class account_info(models.Model):
 
     def __str__(self):
         return self.acc_no
+
+
+
+##########################################  MIS  ###############################################################
+class District(models.Model):
+    name = models.CharField(max_length=100)
+    def __str__(self):
+        return self.name
+
+class Department(models.Model):
+    name = models.CharField(max_length=100)
+    def __str__(self):
+        return self.name
+
+class MIS(models.Model):
+    name        = models.CharField(max_length = 150)
+    guardian_name = models.CharField(max_length = 150)
+    married = models.BooleanField(default=False)
+    date_of_birth = models.CharField(max_length=10,help_text="Format : yyyy-mm-dd")
+    GENDER = (
+        ('',''),
+        ('F','Female'),
+        ('M','Male'),
+        ('O','Other'),
+    )
+    gender = models.CharField(max_length=10, choices=GENDER, default='')
+    CATEGORY = (
+        ('',''),
+        ('SC', 'Schedule Caste'),
+        ('ST', 'Schedule Tribe'),
+        ('OBC', 'Other Backward Class'),
+        ('Min', 'Minorities'),
+    )
+    category = models.CharField(max_length=5, choices=CATEGORY, default='')
+    caste    = models.CharField(max_length = 20)
+    age      = models.IntegerField()
+    mobile      = models.CharField(max_length = 10)
+    QUALIFICATION =(
+        ('',''),
+        ('S', 'STUDENT'),
+        ('UG', 'UNDERGRADUATE'),
+        ('G', 'GRADUATE'),
+        ('PG', 'POSTGRADUATE'),
+        ('P', 'PROFESSIONAL'),
+        ('BM', 'BUSINESSMAN'),
+        ('O', 'OTHER'),
+    )
+    qualification = models.CharField(max_length=60, choices=QUALIFICATION, default='')
+    department  = models.ForeignKey(Department, on_delete=models.PROTECT)
+    date_of_joining_in_depart = models.CharField(max_length=10,help_text="Format : yyyy-mm-dd")
+    post        = models.CharField(max_length = 100)
+    CLASS = (
+        ('',''),
+        ('I'  ,'Class I'),
+        ('II' ,'Class II'),
+        ('III','Class III'),
+        ('IV' ,'Class IV'),
+    )
+    Class       = models.CharField(max_length = 5, choices=CLASS, default='')
+    promotion_date =models.CharField(max_length=10,help_text="Format : dd-mm-yyyy", blank=True)
+    district    = models.ForeignKey(District, on_delete=models.PROTECT)
+    block       = models.CharField(max_length = 100)
+    postal_addr = models.TextField(max_length = 300, blank=True)
+    pan_no      = models.CharField(max_length = 20)
+    acc_no      = models.CharField(max_length = 50)
+    ifsc        = models.CharField(max_length = 20)
+    bank_name   = models.CharField(max_length = 100)
+    permanent_addr = models.TextField(max_length = 300, blank=True)
+    pincode     = models.CharField(max_length = 6)
+    accepted    = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.name

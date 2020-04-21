@@ -1,7 +1,7 @@
 from django.contrib import admin
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
-from .models import account_info, events, aboutUS, eventPhoto, Rules, Gallery, Contact, FounderContact, Designation, UpcomingEvent, Brochure, fact
+from .models import *
 # Register your models here.
 class FactAdmin(admin.ModelAdmin):
     list_display = ('fact_no', 'fact')
@@ -83,6 +83,41 @@ class account_infoResources(resources.ModelResource):
 @admin.register(account_info)
 class account_infoAdmin(ImportExportModelAdmin, account_infoAdmin):
     resource_class = account_infoResources
+
+class DepartmentResource(resources.ModelResource):
+    class Meta:
+        model = Department
+        fields = ('id','name',)
+
+@admin.register(Department)
+class DepartmentAdmin(ImportExportModelAdmin):
+    resource_class = DepartmentResource
+
+class DistrictResource(resources.ModelResource):
+    class Meta:
+        model = District
+        fields = ('id','name',)
+
+@admin.register(District)
+class DistrictAdmin(ImportExportModelAdmin):
+    resource_class = DistrictResource
+
+
+class MISAdmin(admin.ModelAdmin):
+    list_display = ('name', 'mobile', 'department', 'post', 'accepted')
+    list_display_links = ('name', )
+    list_editable = ('mobile', 'accepted')
+    list_filter = ('category','Class', 'gender', 'married' ,'district')
+
+class MISResource(resources.ModelResource):
+    class Meta:
+        model = MIS
+        fields = ('id', 'name', 'guardian_name', 'married', 'date_of_birth', 'gender', 'category', 'caste', 'age', 'mobile', 'qualification', 'department', 'date_of_joining_in_depart', 'post', 'Class', 'promotion_date' ,'district', 'block', 'postal_addr', 'pan_no', 'acc_no', 'ifsc', 'bank_name', 'permanent_addr', 'pincode', 'accepted')
+        export_order = fields
+
+@admin.register(MIS)
+class MISAdmin(ImportExportModelAdmin, MISAdmin):
+    resource_class = MISResource
 
 admin.site.register(eventPhoto)
 admin.site.register(Gallery)

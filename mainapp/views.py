@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import *
 # Create your views here.
 
@@ -86,3 +86,176 @@ def facts(request):
         'facts': f
     }
     return render(request, 'facts.html', context)
+
+def mis_indi(request, pk):
+    context = {
+        'person': MIS.objects.get(id=pk)
+    }
+    return render(request, 'mis_individual.html', context)
+
+def mis_list(request):
+    context = {
+        'mis': MIS.objects.all()
+    }
+    return render(request, 'mis_list.html', context)
+
+def mis_success(request):
+    context = {}
+    return render(request, "mis_success.html", context)
+
+def mis(request):
+    context = {
+        'error': False,
+        'error_msgs': '',
+        'departments': Department.objects.all(),
+        'districts': District.objects.all()
+    }
+    if request.method == "POST":
+        print (request.POST)
+        if request.POST['name']and request.POST['g_name'] and request.POST['dob'] and request.POST['gender'] and request.POST['age'] and request.POST['mobile'] and request.POST['pan_no'] and request.POST['acc_no'] and request.POST['ifsc'] and request.POST['bank_name'] and request.POST['per_addr'] and request.POST['pincode'] and request.POST['department'] and request.POST['doj'] and request.POST['post'] and request.POST['class'] and request.POST['district'] and request.POST['block'] and request.POST['postal_addr']:
+            error_msgs = []
+            name       = request.POST['name']
+            g_name     = request.POST['g_name']
+            dob        = request.POST['dob']
+            gender     = request.POST['gender']
+            age        = request.POST['age']
+            mobile     = request.POST['mobile']
+            try:
+                married = True if request.POST['married'] == 'on' else False
+            except:
+                married = False
+            category   = request.POST['category']
+            caste      = request.POST['caste']
+            pan_no     = request.POST['pan_no']
+            acc_no     = request.POST['acc_no']
+            ifsc       = request.POST['ifsc']
+            bank_name  = request.POST['bank_name']
+            per_addr   = request.POST['per_addr']
+            pincode    = request.POST['pincode']
+            department = request.POST['department']
+            doj        = request.POST['doj']
+            post       = request.POST['post']
+            Class      = request.POST['class']
+            qualification  = request.POST['qualification']
+            promotion_date = request.POST['promotion_date']
+            district       = request.POST['district']
+            block          = request.POST['block']
+            postal_addr    = request.POST['postal_addr']
+            
+            
+            if (1 <= len(mobile) < 10) or (len(mobile) > 10):
+                error_msg = "Mobile number must be of 10 characters."
+                error_msgs.append(error_msg)
+                context['error'] = True
+                context['error_msgs'] = error_msgs
+
+            if 5 < len(pincode) > 6:
+                error_msg = "Invalid pincode."
+                error_msgs.append(error_msg)
+                context['error'] = True
+                context['error_msgs'] = error_msgs
+
+            if age:
+                print(f"Age : {age}")
+                if int(age) <= 18:
+                    error_msg = "Inavalid age."
+                    error_msgs.append(error_msg)
+                    context['error'] = True
+                    context['error_msgs'] = error_msgs
+                #error_msg = "Mobile number must be of 10 characters."
+                #error_msgs.append(error_msg)
+                #context['error'] = True
+                #context['error_msgs'] = error_msgs
+            else:
+                error_msg = "Input Age."
+                error_msgs.append(error_msg)
+                context['error'] = True
+                context['error_msgs'] = error_msgs
+            
+            if not ''.join(name.split(' ')).isalpha():
+                error_msg = "Name must only contain alphabets."
+                error_msgs.append(error_msg)
+                context['error'] = True
+                context['error_msgs'] = error_msgs
+
+            if not ''.join(g_name.split(' ')).isalpha():
+                error_msg = "Father/husband name must only contain alphabets."
+                error_msgs.append(error_msg)
+                context['error'] = True
+                context['error_msgs'] = error_msgs
+            
+            if not ''.join(bank_name.split(' ')).isalpha():
+                error_msg = "Bank name must only contain alphabets."
+                error_msgs.append(error_msg)
+                context['error'] = True
+                context['error_msgs'] = error_msgs
+            
+            if department == '0':
+                error_msg = "Please select one department."
+                error_msgs.append(error_msg)
+                context['error'] = True
+                context['error_msgs'] = error_msgs
+            
+            if gender == '0':
+                error_msg = "Please select your gender."
+                error_msgs.append(error_msg)
+                context['error'] = True
+                context['error_msgs'] = error_msgs
+
+            if Class == '0':
+                error_msg = "Please select your Class."
+                error_msgs.append(error_msg)
+                context['error'] = True
+                context['error_msgs'] = error_msgs
+
+            if qualification == '0':
+                error_msg = "Please select your qualification."
+                error_msgs.append(error_msg)
+                context['error'] = True
+                context['error_msgs'] = error_msgs
+
+            if district == '0':
+                error_msg = "Please select your district."
+                error_msgs.append(error_msg)
+                context['error'] = True
+                context['error_msgs'] = error_msgs
+
+            if context['error']:
+                return render(request, 'mis.html', context)
+            else:
+                m = MIS()
+                m.name = name
+                m.guardian_name = g_name
+                m.date_of_birth = dob
+                m.gender = gender
+                m.age = age
+                m.mobile = mobile
+                m.married = married
+                m.category = category
+                m.caste = caste
+                m.qualification = qualification
+                m.pan_no = pan_no
+                m.acc_no = acc_no
+                m.ifsc = ifsc
+                m.bank_name = bank_name
+                m.permanent_addr = per_addr
+                m.pincode = pincode
+                m.department = Department.objects.get(name=department)
+                m.date_of_joining_in_depart = doj
+                m.post = post
+                m.Class = Class
+                m.promotion_date = promotion_date
+                m.district = District.objects.get(name=district)
+                m.block = block
+                m.postal_addr = postal_addr
+                m.save()
+                context = {
+                    'submitted_success' : True
+                }
+                return redirect(mis_success)
+        else:
+            context['error'] = True
+            context['error_msgs'] = ['Some fields are empty.']
+            return render(request, 'mis.html', context)
+
+    return render(request, 'mis.html', context)

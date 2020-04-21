@@ -1,0 +1,117 @@
+{% extends "base.html" %} {% load static %}{% block head %}
+<link rel="stylesheet" href="{% static 'css/mis.css' %}">
+<title>Social Justice Legal Cell | {{ person.name }}</title>
+{% endblock head %} {% block body %}
+
+<div class="mis_person">
+
+    <div id="person">
+        <div id="person_heading">
+            Personal Details
+        </div>
+        <table>
+            <tbody>
+                <tr>
+                    <th>Name</th>
+                    <td>{{ person.name }}</td>
+                </tr>
+                <tr>
+                    <th>Father/Husband Name</th>
+                    <td>{{ person.guardian_name }}</td>
+                </tr>
+                <tr>
+                    <th>Married</th>
+                    <td>
+                        {% if person.married %} Yes {% else %} No {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <th>Date of birth</th>
+                    <td>{{ person.date_of_birth }}</td>
+                </tr>
+                <tr>
+                    <th>Gender</th>
+                    <td>{{ person.gender }}</td>
+                </tr>
+                <tr>
+                    <th>Category</th>
+                    <td>{{ person.category }}</td>
+                </tr>
+                <tr>
+                    <th>Caste</th>
+                    <td>{{ person.caste }}</td>
+                </tr>
+                <tr>
+                    <th>Age</th>
+                    <td>{{ person.age }}</td>
+                </tr>
+                <tr>
+                    <th>Mobile</th>
+                    <td>{{ person.mobile }}</td>
+                </tr>
+                <tr>
+                    <th>Qualification</th>
+                    <td>{{ person.qualification}}</td>
+                </tr>
+                <tr>
+                    <th>Department</th>
+                    <td>{{ person.department }}</td>
+                </tr>
+                <tr>
+                    <th>Date of Joining in department</th>
+                    <td>{{ person.date_of_joining_in_depart }}</td>
+                </tr>
+                <tr>
+                    <th>post</th>
+                    <td>{{ person.post }}</td>
+                </tr>
+                <tr>
+                    <th>Class</th>
+                    <td>{{ person.Class }}</td>
+                </tr>
+                <tr>
+                    <th>Promotion Date</th>
+                    <td>{{ person.promotion_date }}</td>
+                </tr>
+                <tr>
+                    <th>District</th>
+                    <td>{{ person.district }}</td>
+                </tr>
+                <tr>
+                    <th>Block</th>
+                    <td>{{ person.block }}</td>
+                </tr>
+                <tr>
+                    <th>Postal Address</th>
+                    <td>{{ person.postal_addr }}</td>
+                </tr>
+                <tr>
+                    <th>PAN</th>
+                    <td>{{ person.pan_no }}</td>
+                </tr>
+                <tr>
+                    <th>Account number</th>
+                    <td>{{ person.acc_no }}</td>
+                </tr>
+                <tr>
+                    <th>IFSC</th>
+                    <td>{{ person.ifsc }}</td>
+                </tr>
+                <tr>
+                    <th>Bank name</th>
+                    <td>{{ person.bank_name }}</td>
+                </tr>
+                <tr>
+                    <th>Permanent Address</th>
+                    <td>{{ person.permanent_addr }}</td>
+                </tr>
+                <tr>
+                    <th>Pincode</th>
+                    <td>{{ person.pincode }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+{% endblock body %}

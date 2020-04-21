@@ -1,0 +1,38 @@
+{% extends "base.html" %} {% load static %}{% block head %}
+<link rel="stylesheet" href="{% static 'css/mis.css' %}">
+<title>Social Justice Legal Cell | Member List</title>
+{% endblock head %} {% block body %}
+
+<div class="mis_list">
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Name</th>
+                <th>Mobile</th>
+                <th>District</th>
+                <th>Block</th>
+                <th>Department</th>
+                <th>Date of Joining</th>
+                <th>Date of Promotion</th>
+            </tr>
+            {% for m in mis %} {% if m.accepted %}
+            <tr>
+                <td><a href="{% url 'mis_person' m.id %}"> {{ m.name }} </a></td>
+                <td>{{ m.mobile }}</td>
+                <td>{{ m.district }}</td>
+                <td>{{ m.block }}</td>
+                <td>{{ m.department }}</td>
+                <td>{{ m.date_of_joining_in_depart }}</td>
+                <td>{{ m.promotion_date }}</td>
+            </tr>
+            {% endif %} {% empty %}
+            <tr>
+                <td>No Members</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+{% endblock body %}

@@ -99,8 +99,11 @@
 
 <section class="body-section" id="activities">
     <video autoplay loop>
-            <source src="{% static 'video/1.mp4' %}" type='video/mp4'>
-        </video>
+        <source src="{% static 'video/1.mp4' %}" type='video/mp4'>
+    </video>
+    <script>
+        document.querySelector('video').volume = 0.3;
+    </script>
     <h1 data-aos="dade-down" class='heading'><a href="{% url 'activity' %}" alt='Click to go to activities page.'>Activities</a></h1>
 </section>
 <section id="contrib-section">
