@@ -66,7 +66,9 @@ def dev(request):
 
 
 def downloads(request):
-    b = Brochure.objects.order_by('-date')[0]
+    b = Brochure.objects.order_by('date')
+    if len(list(b)) != 0:
+        b = b[0]
     context = {
         'brochure': b
       }
@@ -114,7 +116,7 @@ def mis(request):
     }
     if request.method == "POST":
         print (request.POST)
-        if request.POST['name']and request.POST['g_name'] and request.POST['dob'] and request.POST['gender'] and request.POST['age'] and request.POST['mobile'] and request.POST['pan_no'] and request.POST['acc_no'] and request.POST['ifsc'] and request.POST['bank_name'] and request.POST['per_addr'] and request.POST['pincode'] and request.POST['department'] and request.POST['doj'] and request.POST['post'] and request.POST['class'] and request.POST['district'] and request.POST['block'] and request.POST['postal_addr']:
+        if request.POST['name']and request.POST['g_name'] and request.POST['dob'] and request.POST['gender'] and request.POST['age'] and request.POST['mobile'] and request.POST['per_addr'] and request.POST['pincode'] and request.POST['department'] and request.POST['doj'] and request.POST['post'] and request.POST['class'] and request.POST['district'] and request.POST['block'] and request.POST['postal_addr']:
             error_msgs = []
             name       = request.POST['name']
             g_name     = request.POST['g_name']
@@ -128,10 +130,6 @@ def mis(request):
                 married = False
             category   = request.POST['category']
             caste      = request.POST['caste']
-            pan_no     = request.POST['pan_no']
-            acc_no     = request.POST['acc_no']
-            ifsc       = request.POST['ifsc']
-            bank_name  = request.POST['bank_name']
             per_addr   = request.POST['per_addr']
             pincode    = request.POST['pincode']
             department = request.POST['department']
@@ -186,12 +184,6 @@ def mis(request):
                 context['error'] = True
                 context['error_msgs'] = error_msgs
             
-            if not ''.join(bank_name.split(' ')).isalpha():
-                error_msg = "Bank name must only contain alphabets."
-                error_msgs.append(error_msg)
-                context['error'] = True
-                context['error_msgs'] = error_msgs
-            
             if department == '0':
                 error_msg = "Please select one department."
                 error_msgs.append(error_msg)
@@ -236,10 +228,6 @@ def mis(request):
                 m.category = category
                 m.caste = caste
                 m.qualification = qualification
-                m.pan_no = pan_no
-                m.acc_no = acc_no
-                m.ifsc = ifsc
-                m.bank_name = bank_name
                 m.permanent_addr = per_addr
                 m.pincode = pincode
                 m.department = Department.objects.get(name=department)

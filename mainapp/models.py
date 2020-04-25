@@ -160,6 +160,8 @@ class MIS(models.Model):
         ('UG', 'UNDERGRADUATE'),
         ('G', 'GRADUATE'),
         ('PG', 'POSTGRADUATE'),
+        ('PhD', 'PhD'),
+        ('MP', 'M.Phil'),
         ('P', 'PROFESSIONAL'),
         ('BM', 'BUSINESSMAN'),
         ('O', 'OTHER'),
@@ -180,10 +182,6 @@ class MIS(models.Model):
     district    = models.ForeignKey(District, on_delete=models.PROTECT)
     block       = models.CharField(max_length = 100)
     postal_addr = models.TextField(max_length = 300, blank=True)
-    pan_no      = models.CharField(max_length = 20)
-    acc_no      = models.CharField(max_length = 50)
-    ifsc        = models.CharField(max_length = 20)
-    bank_name   = models.CharField(max_length = 100)
     permanent_addr = models.TextField(max_length = 300, blank=True)
     pincode     = models.CharField(max_length = 6)
     accepted    = models.BooleanField(default=False)
