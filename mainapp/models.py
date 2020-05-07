@@ -95,7 +95,7 @@ class Contact(models.Model):
     mobile = models.CharField( max_length=10)
     desgn  = models.ForeignKey(Designation, on_delete=models.CASCADE)
     state  = models.CharField("State", max_length=60, choices=state_choice, default='')
-    pos    = models.CharField( max_length=100, choices=POS_CHOICES, default='p')
+    pos    = models.CharField( max_length=100, choices=POS_CHOICES, default='m')
     show   = models.BooleanField(default=False)
 
     def __str__(self):
