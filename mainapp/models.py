@@ -50,10 +50,51 @@ class Contact(models.Model):
         ('lp','Legal Panel/Advisor'),
         ('p', "Patron"),
         ('a', "Advocate"),
+        ('m', "Active Member"),
+    )
+    state_choice = (
+        ('', ''),
+        ('ap', "Andra Pradesh"),
+        ('arp', "Arunachal Pradesh"),
+        ('a', "Assam"),
+        ('b', "Bihar"),
+        ('cg', "Chhattisgarh"),
+        ('goa', "Goa"),
+        ('g', "Gujarat"),
+        ('h', "Haryana"),
+        ('hp', "Himachal Pradesh"),
+        ('jk', "Jammu and Kashmir"),
+        ('j', "Jharkhand"),
+        ('k', "Karnataka"),
+        ('kr', "Kerala"),
+        ('mp', "Madya Pradesh"),
+        ('m', "Maharashtra"),
+        ('mani', "Manipur"),
+        ('meg', "Meghalaya"),
+        ('miz', "Mizoram"),
+        ('ng', "Nagaland"),
+        ('o', "Orissa"),
+        ('pun', "Punjab"),
+        ('raj', "Rajasthan"),
+        ('s', "Sikkim"),
+        ('tn', "Tamil Nadu"),
+        ('t', "Telagana"),
+        ('tp', "Tripura"),
+        ('u', "Uttaranchal"),
+        ('up', "Uttar Pradesh"),
+        ('wb', "West Bengal"),
+        ('an', "Andaman and Nicobar Islands"),
+        ('c', "Chandigarh"),
+        ('dn', "Dadar and Nagar Haveli"),
+        ('dd', "Daman and Diu"),
+        ('del', "Delhi"),
+        ('l', "Lakshadeep"),
+        ('pu', "Puducherry"),
     )
     name   = models.CharField( max_length=100)
     mobile = models.CharField( max_length=10)
     desgn  = models.ForeignKey(Designation, on_delete=models.CASCADE)
+    state  = models.CharField("State", max_length=60, choices=state_choice, default='')
     pos    = models.CharField( max_length=100, choices=POS_CHOICES, default='p')
     show   = models.BooleanField(default=False)
 

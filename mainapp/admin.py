@@ -9,6 +9,8 @@ class FactAdmin(admin.ModelAdmin):
 class FactResources(resources.ModelResource):
     class Meta:
         model = fact
+        skip_unchanged = True
+        report_skipped = True
         fields = ('id', 'fact_no', 'fact')
         export_order = fields
 @admin.register(fact)
@@ -21,6 +23,8 @@ class RulesAdmin(admin.ModelAdmin):
 class RulesResources(resources.ModelResource):
     class Meta:
         model = Rules
+        skip_unchanged = True
+        report_skipped = True
         fields = ('id','rule_no', 'rule', 'rule_en')
         export_order = fields 
 @admin.register(Rules)
@@ -34,6 +38,8 @@ class FounderContactAdmin(admin.ModelAdmin):
 class FounderContactResources(resources.ModelResource):
     class Meta:
         model = FounderContact
+        skip_unchanged = True
+        report_skipped = True
         fields = ('id', 'name', 'mobile', 'desgn', 'show')
         export_order = fields
 @admin.register(FounderContact)
@@ -41,14 +47,16 @@ class FounderContactAdmin(ImportExportModelAdmin, FounderContactAdmin):
     resource_class = FounderContactResources
 
 class ContactAdmin(admin.ModelAdmin):
-    list_display = ('name', 'mobile', 'desgn', 'pos', 'show')
+    list_display = ('name', 'mobile', 'desgn', 'state', 'pos', 'show')
     list_display_links = ('name',)
     list_editable = ('show',)
     list_filter = ('pos',)
 class ContactResources(resources.ModelResource):
     class Meta:
         model = Contact
-        fields = ('id', 'name', 'mobile', 'desgn', 'pos', 'show')
+        skip_unchanged = True
+        report_skipped = True
+        fields = ('id', 'name', 'mobile', 'desgn', 'state', 'pos', 'show')
         export_order = fields
 @admin.register(Contact)
 class ContactAdmin(ImportExportModelAdmin, ContactAdmin):
@@ -78,6 +86,8 @@ class account_infoAdmin(admin.ModelAdmin):
 class account_infoResources(resources.ModelResource):
     class Meta:
         model = account_info
+        skip_unchanged = True
+        report_skipped = True
         fields = ('id', 'acc_no', 'ifsc', 'bank_name')
         export_order = fields
 @admin.register(account_info)
@@ -87,6 +97,8 @@ class account_infoAdmin(ImportExportModelAdmin, account_infoAdmin):
 class DepartmentResource(resources.ModelResource):
     class Meta:
         model = Department
+        skip_unchanged = True
+        report_skipped = True
         fields = ('id','name',)
 
 @admin.register(Department)
@@ -96,6 +108,8 @@ class DepartmentAdmin(ImportExportModelAdmin):
 class DistrictResource(resources.ModelResource):
     class Meta:
         model = District
+        skip_unchanged = True
+        report_skipped = True
         fields = ('id','name',)
 
 @admin.register(District)
@@ -112,6 +126,8 @@ class MISAdmin(admin.ModelAdmin):
 class MISResource(resources.ModelResource):
     class Meta:
         model = MIS
+        skip_unchanged = True
+        report_skipped = True
         fields = ('id', 'name', 'guardian_name', 'married', 'date_of_birth', 'gender', 'category', 'caste', 'age', 'mobile', 'qualification', 'department', 'date_of_joining_in_depart', 'post', 'Class', 'promotion_date' ,'district', 'block', 'postal_addr', 'pan_no', 'acc_no', 'ifsc', 'bank_name', 'permanent_addr', 'pincode', 'accepted')
         export_order = fields
 
