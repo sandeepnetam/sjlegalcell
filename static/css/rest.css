@@ -17,7 +17,7 @@
 #gallery-heading,
 #contact-heading,
 #dev-heading {
-    font-size: 50px;
+    font-size: 20px;
     line-height: 40px;
     width: 100%;
     padding: 20px;
@@ -38,6 +38,7 @@
 #gallery h1,
 #activity h1 {
     padding-left: 10px;
+    font-size: 25px;
     width: 100%;
     text-align: left;
     text-transform: uppercase;
@@ -119,7 +120,7 @@
     position: relative;
     border: 5px solid white;
     z-index: 1;
-    font-size: 30px;
+    font-size: 20px;
     text-align: center;
     transition: 0.5s;
     -webkit-transition: 0.5s;
