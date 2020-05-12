@@ -209,7 +209,7 @@ class MIS(models.Model):
     )
     qualification = models.CharField(max_length=60, choices=QUALIFICATION, default='')
     department  = models.ForeignKey(Department, on_delete=models.PROTECT)
-    date_of_joining_in_depart = models.CharField(max_length=10,help_text="Format : yyyy-mm-dd")
+    date_of_joining_in_depart = models.CharField(max_length=10)
     post        = models.CharField(max_length = 100)
     CLASS = (
         ('',''),
@@ -219,7 +219,7 @@ class MIS(models.Model):
         ('IV' ,'Class IV'),
     )
     Class       = models.CharField(max_length = 5, choices=CLASS, default='')
-    promotion_date =models.CharField(max_length=10,help_text="Format : dd-mm-yyyy", blank=True)
+    promotion_date =models.CharField(max_length=10, blank=True)
     district    = models.ForeignKey(District, on_delete=models.PROTECT)
     block       = models.CharField(max_length = 100)
     postal_addr = models.TextField(max_length = 300, blank=True)

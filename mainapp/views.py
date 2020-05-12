@@ -137,7 +137,7 @@ def mis(request):
             post       = request.POST['post']
             Class      = request.POST['class']
             qualification  = request.POST['qualification']
-            promotion_date = request.POST['promotion_date']
+            promotion_date = request.POST['promotion_date'] if request.POST['promotion_date'] else ''
             district       = request.POST['district']
             block          = request.POST['block']
             postal_addr    = request.POST['postal_addr']
@@ -234,7 +234,8 @@ def mis(request):
                 m.date_of_joining_in_depart = doj
                 m.post = post
                 m.Class = Class
-                m.promotion_date = promotion_date
+                if promotion_date:
+                    m.promotion_date = promotion_date
                 m.district = District.objects.get(name=district)
                 m.block = block
                 m.postal_addr = postal_addr
