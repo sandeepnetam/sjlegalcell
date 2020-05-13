@@ -1,7 +1,9 @@
 from django.db import models
 from django.db.models.signals import post_delete
+from django.contrib.auth.models import User
 from django.dispatch import receiver
 # Create your models here.
+
 class events(models.Model):
     name  = models.CharField(max_length=100)
     date  = models.DateField(auto_now=False, auto_now_add=False)
@@ -35,6 +37,7 @@ class Gallery(models.Model):
 
     def __str__(self):
         return str(self.id)
+    
 @receiver(post_delete, sender=Gallery)
 def submission_delete(sender, instance, **kwargs):
     instance.img.delete(False) 
@@ -129,6 +132,7 @@ class Brochure(models.Model):
 
     def __str__(self):
         return f'SJLC Brochure : {self.date.strftime("%d-%m-%Y")}'
+    
 @receiver(post_delete, sender=Brochure)
 def submission_delete(sender, instance, **kwargs):
     instance.SJLC_Brochure.delete(False) 
@@ -173,7 +177,9 @@ class Department(models.Model):
         return self.name
 
 class MIS(models.Model):
-    name        = models.CharField(max_length = 150)
+    
+    user = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name='User Name') # User Releted
+    name = models.CharField(max_length = 150)
     guardian_name = models.CharField(max_length = 150)
     married = models.BooleanField(default=False)
     date_of_birth = models.CharField(max_length=10,help_text="Format : yyyy-mm-dd")
@@ -210,7 +216,7 @@ class MIS(models.Model):
     qualification = models.CharField(max_length=60, choices=QUALIFICATION, default='')
     department  = models.ForeignKey(Department, on_delete=models.PROTECT)
     date_of_joining_in_depart = models.CharField(max_length=10)
-    post        = models.CharField(max_length = 100)
+    post = models.CharField(max_length = 100)
     CLASS = (
         ('',''),
         ('I'  ,'Class I'),
