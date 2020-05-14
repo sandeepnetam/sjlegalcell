@@ -23,12 +23,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'frwb@!)^95==7+0@o+nkawdnca&*^*uwj0j=r)_$3fsc7iq+6='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if os.path.exists('.env'):
-    DEBUG = True
-    ALLOWED_HOSTS = []
-else:
-    DEBUG = False
-    ALLOWED_HOSTS = ['www.sjlegalcell.com', 'sjlegalcell.com']
+
+DEBUG = True
+ALLOWED_HOSTS = []
+
 #'165.22.219.255'
 
 
@@ -79,24 +77,14 @@ WSGI_APPLICATION = 'sjlegal.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-if DEBUG:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'sjlegalcell_new',
-            'USER': 'sjlegalcell_admin',
-            'PASSWORD': 'sjlegalcell_passw0rd',
-            'HOST': 'localhost',
-            'PORT': '',
-        }
-    }
+}
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
