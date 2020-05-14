@@ -2,6 +2,7 @@ from django.contrib import admin
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
 from .models import *
+
 # Register your models here.
 class FactAdmin(admin.ModelAdmin):
     list_display = ('fact_no', 'fact')
@@ -13,6 +14,7 @@ class FactResources(resources.ModelResource):
         report_skipped = True
         fields = ('id', 'fact_no', 'fact')
         export_order = fields
+        
 @admin.register(fact)
 class FactAdmin(ImportExportModelAdmin, FactAdmin):
     resource_class = FactResources

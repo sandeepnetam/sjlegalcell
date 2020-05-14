@@ -1,13 +1,18 @@
 from django.shortcuts import render, redirect
+from django.db.models import Max, Min, Sum, Count, Q
 from .models import *
 # Create your views here.
 
 def home(request):
     ue = UpcomingEvent.objects.order_by('event_date')
     f  = fact.objects.order_by('-fact_no')[:4]
-    a_info = account_info.objects.all()
-    if len(list(a_info)) != 0:
-        a_info = a_info[0]
+    a_info = account_info.objects.all().count()
+
+    # if len(list(a_info)) != 0:
+    #     a_info = a_info[0]
+    # else:
+    #     a_info = 0
+
     context = {  
         'upcoming_events': ue,
         'facts': f,
