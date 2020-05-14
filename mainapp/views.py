@@ -8,17 +8,12 @@ def home(request):
     f  = fact.objects.order_by('-fact_no')[:4]
     a_info = account_info.objects.all().count()
 
-    # if len(list(a_info)) != 0:
-    #     a_info = a_info[0]
-    # else:
-    #     a_info = 0
-
     context = {  
         'upcoming_events': ue,
         'facts': f,
         'a_info': a_info
       }
-    return render(request, 'home.html', context)
+    return render(request, 'home_s.html', context)
 
 def about(request):
     a = aboutUS.objects.order_by('showing_order')

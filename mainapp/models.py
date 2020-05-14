@@ -18,6 +18,8 @@ class eventPhoto(models.Model):
 
     def __str__(self):
         return str(self.id)
+
+        
 @receiver(post_delete, sender=eventPhoto)
 def submission_delete(sender, instance, **kwargs):
     instance.image.delete(False)
