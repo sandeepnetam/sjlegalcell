@@ -1,8 +1,0 @@
-.vscode
-sjc_env
-.env
-*.pyc
-*/migrations
-migrations/*
-__pychache__
-*.sqlite3
